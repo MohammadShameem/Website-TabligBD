@@ -175,50 +175,183 @@
         <div class="max-w-md mx-auto mb-12">
           <h3 class="text-xl font-semibold text-white mb-2 text-center">প্রথম জানুন</h3>
           <p class="text-emerald-300 text-sm mb-4 text-center">Be the first to know</p>
-          <div class="flex gap-3">
+          <form id="emailForm" class="flex gap-3">
             <input 
+              id="emailInput"
+              name="email"
               type="email" 
               placeholder="আপনার ইমেইল ঠিকানা দিন" 
               class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-islamic-500 focus:border-transparent backdrop-blur-sm"
+              required
             >
-            <button class="px-6 py-3 bg-gradient-to-r from-islamic-600 to-gold-500 text-white font-semibold rounded-xl hover:from-islamic-700 hover:to-gold-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button 
+              type="submit"
+              id="subscribeBtn" 
+              class="px-6 py-3 bg-gradient-to-r from-islamic-600 to-gold-500 text-white font-semibold rounded-xl hover:from-islamic-700 hover:to-gold-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               জানান
             </button>
-          </div>
+          </form>
           <p class="text-xs text-emerald-400 mt-2 text-center font-bengali">আমরা আপনার ইমেইল শেয়ার করব না। শুধু আপডেট পাবেন।</p>
+          
+          <!-- Success/Error Messages -->
+          <div id="messageContainer" class="mt-4 hidden">
+            <div id="successMessage" class="hidden p-3 bg-islamic-600/20 border border-islamic-500/50 rounded-lg text-emerald-300 text-sm text-center">
+              <i class="fas fa-check-circle mr-2"></i>
+              <span class="font-bengali">ধন্যবাদ! আমরা আপনাকে জানাব যখন আমরা লঞ্চ করব।</span><br>
+              <span class="text-xs">Thank you! We'll notify you when we launch.</span>
+            </div>
+            <div id="errorMessage" class="hidden p-3 bg-red-600/20 border border-red-500/50 rounded-lg text-red-300 text-sm text-center">
+              <i class="fas fa-exclamation-triangle mr-2"></i>
+              <span class="font-bengali">দয়া করে একটি সঠিক ইমেইল ঠিকানা দিন।</span><br>
+              <span class="text-xs">Please enter a valid email address.</span>
+            </div>
+          </div>
+          
+          <!-- Subscriber Count -->
+          <div id="subscriberCount" class="mt-4 text-center text-emerald-400 text-sm hidden">
+            <i class="fas fa-users mr-2"></i>
+            <span id="countText">0</span> <span class="font-bengali">জন সদস্য যোগ দিয়েছেন</span>
+          </div>
         </div>
 
-        <!-- Features Preview 
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-          <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-12 h-12 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-              <i class="fas fa-book-quran text-white"></i>
-            </div>
-            <h4 class="text-lg font-semibold text-white mb-2">দাওয়াত ও তালিম</h4>
-            <p class="text-emerald-300 text-sm font-bengali">কুরআন-হাদিসের আলোকে দাওয়াত ও ইসলামিক শিক্ষার ব্যবস্থা</p>
-            <p class="text-emerald-400 text-xs mt-2">Islamic Education & Dawah</p>
-          </div>
+        <!-- Features Preview -->
+        <div class="mb-12">
+          <h3 class="text-2xl md:text-3xl font-bold text-white text-center mb-8 font-poppins">
+            <span class="text-gradient">আসছে যা যা</span>
+            <p class="text-base text-emerald-300 mt-2 font-normal">Upcoming Features</p>
+          </h3>
           
-          <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-12 h-12 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-              <i class="fas fa-users text-white"></i>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature 1 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-mosque text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">মসজিদ তালিকা</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Mosque List</p>
+                  <p class="text-emerald-300 text-sm">সারাদেশের মসজিদের বিস্তারিত তথ্য</p>
+                </div>
+              </div>
             </div>
-            <h4 class="text-lg font-semibold text-white mb-2">জামাত সংগঠন</h4>
-            <p class="text-emerald-300 text-sm font-bengali">তাবলীগ জামাতের সদস্যদের মধ্যে যোগাযোগ ও সমন্বয়</p>
-            <p class="text-emerald-400 text-xs mt-2">Community Organization</p>
-          </div>
-          
-          <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-12 h-12 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-              <i class="fas fa-calendar-alt text-white"></i>
+
+            <!-- Feature 2 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-user-friends text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">তাবলীগ সাথী তথ্য</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Tablig Companions Info</p>
+                  <p class="text-emerald-300 text-sm">মসজিদভিত্তিক তাবলীগ সাথীদের বিবরণ</p>
+                </div>
+              </div>
             </div>
-            <h4 class="text-lg font-semibold text-white mb-2">ইসলামিক ইভেন্ট</h4>
-            <p class="text-emerald-300 text-sm font-bengali">নামাজের সময়, ইসলামিক ক্যালেন্ডার এবং বিশেষ দিনসমূহ</p>
-            <p class="text-emerald-400 text-xs mt-2">Islamic Calendar & Events</p>
+
+            <!-- Feature 3 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-book-open text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">বয়ান, বই ও ইভেন্ট</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Bayan, Books & Events</p>
+                  <p class="text-emerald-300 text-sm">তাবলীগী বয়ান, বই এবং অনুষ্ঠান</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marked-alt text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">মারকাজ ও হালকা</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Markaz & Halka List</p>
+                  <p class="text-emerald-300 text-sm">এলাকাভিত্তিক মারকাজ ও হালকার তালিকা</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-walking text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">খুরুজের জন্য প্রস্তুত</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Available for Khuruj</p>
+                  <p class="text-emerald-300 text-sm">দাওয়াতী সফরের জন্য প্রস্তুত সাথীগণ</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-hand-holding-heart text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">তাবলীগ তাকাজা</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Tablig Takaja</p>
+                  <p class="text-emerald-300 text-sm">দাওয়াতী কাজের আবেদন ও তাকাজা</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 7 -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-graduation-cap text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">শিক্ষা প্রতিষ্ঠান</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Educational Institutions</p>
+                  <p class="text-emerald-300 text-sm">বিশ্ববিদ্যালয়, কলেজ ও মাদ্রাসা তালিকা</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 8 - Shop -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-shopping-bag text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">তাবলীগ পণ্য</h4>
+                  <p class="text-emerald-400 text-xs mb-2">Tablig Products Shop</p>
+                  <p class="text-emerald-300 text-sm">ইসলামিক বই, পোশাক ও তাবলীগ সম্পর্কিত পণ্য</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 9 - More Coming -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 lg:col-span-2">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-islamic-600 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-ellipsis-h text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-white mb-1 font-bengali">আরও আসছে ইনশাআল্লাহ</h4>
+                  <p class="text-emerald-400 text-xs mb-2">More Coming InshaAllah</p>
+                  <p class="text-emerald-300 text-sm">আমরা ক্রমাগত নতুন ফিচার যুক্ত করছি আপনাদের দাওয়াতী কাজে সহায়তা করার জন্য</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        -->
         
+
         <!-- Social Links -->
         <div class="text-center">
           <p class="text-emerald-300 mb-2 font-bengali">আমাদের সাথে যুক্ত থাকুন</p>
@@ -283,15 +416,68 @@
     setInterval(updateCountdown, 1000);
     updateCountdown(); // Initial call
     
-    // Email subscription (placeholder functionality)
-    document.querySelector('button').addEventListener('click', function() {
-      const email = document.querySelector('input[type="email"]').value;
-      if (email && email.includes('@')) {
-        alert('ধন্যবাদ! আমরা আপনাকে জানাব যখন আমরা লঞ্চ করব।\n\nThank you! We\'ll notify you when we launch.');
-        document.querySelector('input[type="email"]').value = '';
-      } else {
-        alert('দয়া করে একটি সঠিক ইমেইল ঠিকানা দিন।\n\nPlease enter a valid email address.');
+    // Email subscription with localStorage
+    const form = document.getElementById('emailForm');
+    const messageContainer = document.getElementById('messageContainer');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const emailInput = document.getElementById('emailInput');
+      const email = emailInput.value.trim();
+      
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        messageContainer.classList.remove('hidden');
+        errorMessage.classList.remove('hidden');
+        successMessage.classList.add('hidden');
+        setTimeout(() => {
+          errorMessage.classList.add('hidden');
+          messageContainer.classList.add('hidden');
+        }, 5000);
+        return;
       }
+      
+      const subscribeBtn = document.getElementById('subscribeBtn');
+      const originalBtnText = subscribeBtn.innerHTML;
+      
+      // Show loading state
+      subscribeBtn.disabled = true;
+      subscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>প্রেরণ করা হচ্ছে...';
+      
+      // Simulate processing
+      setTimeout(() => {
+        // Save to localStorage
+        let subscribers = JSON.parse(localStorage.getItem('tabligbd_subscribers') || '[]');
+        if (!subscribers.includes(email)) {
+          subscribers.push(email);
+          localStorage.setItem('tabligbd_subscribers', JSON.stringify(subscribers));
+        }
+        
+        // Send email via mailto (opens email client)
+        const subject = encodeURIComponent('New TabligBD Subscriber');
+        const body = encodeURIComponent(`New subscriber email: ${email}\n\nDate: ${new Date().toLocaleString()}`);
+        window.location.href = `mailto:mohammadshamimjust@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Show success message
+        messageContainer.classList.remove('hidden');
+        successMessage.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
+        form.reset();
+        
+        // Restore button state
+        subscribeBtn.disabled = false;
+        subscribeBtn.innerHTML = originalBtnText;
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+          messageContainer.classList.add('hidden');
+        }, 5000);
+      }, 1000);
     });
   </script>
 </body>
